@@ -10,13 +10,15 @@ public class Sale {
     private LocalDateTime timestamp;
     private double totalAmount;
     private String paymentMethod;
-    private List<SaleItem> saleItems; // To hold the items in this sale
+    private int staffID; // <-- THE FIX: Added staffID attribute
+    private List<SaleItem> saleItems;
 
-    // Constructor
-    public Sale(int saleID, LocalDateTime timestamp, String paymentMethod) {
+    // Corrected Constructor
+    public Sale(int saleID, LocalDateTime timestamp, String paymentMethod, int staffID) {
         this.saleID = saleID;
         this.timestamp = timestamp;
         this.paymentMethod = paymentMethod;
+        this.staffID = staffID;
         this.totalAmount = 0.0;
         this.saleItems = new ArrayList<>();
     }
@@ -54,6 +56,14 @@ public class Sale {
 
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public int getStaffID() { // <-- THE FIX: Added getStaffID() method
+        return staffID;
+    }
+
+    public void setStaffID(int staffID) {
+        this.staffID = staffID;
     }
 
     public List<SaleItem> getSaleItems() {
